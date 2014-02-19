@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Royal Squadron - Logs summary</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+		<!-- DataTables -->
+		<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+	</head>
+	<body>
+		<h1>Royal Squadron - Logs summary</h1>
+		<h2>Ranks summary</h2>
+		<div>
+			<table id="rank-summary">
+				<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		
+		<h2>Roster</h2>
+		<div>
+			<table id="log-table">
+				<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//var rosterData = [];
+				var rosterSummary = {
+					'Admiral Floty': [1],
+					'Admiral': [2],
+					'Dow. Dywizjonu': [3],
+					'Dow. Klucza': [4],
+					'Dow. Eskadry': [5],
+					'Dow. Okretu': [6],
+					'Rekrut': [7],
+				};
+				
+				jsonpCallback  = function(data) {
+					//rosterData = data;
+					var tab = $('#log-table').dataTable({					
+						"iDisplayLength": 300
+					});
+					var tabSummary = $('#rank-summary').dataTable({					
+						"iDisplayLength": 300
+					});
+					
+					tab.fnAddData(data);
+					$.each(data, function(i, e){
+						var rank = e[2];
+						if (rosterSummary[rank][1] === undefined) {
+							rosterSummary[rank][1] = 1;
+						} else {
+							rosterSummary[rank][1]++;
+						}
+						
+						if (rosterSummary[rank][2] === undefined) {
+							rosterSummary[rank][2] = e[0] + '@' + e[1];
+						} else {
+							rosterSummary[rank][2] += ', ' + e[0] + '@' + e[1];
+						}
+					});
+					$.each(rosterSummary, function(i, e){
+						tabSummary.fnAddData([e[0], i, e[1], e[2]]);
+					});
+					
+					
+					
+					/*$.each(data, function(i, e){
+						console.log(e);
+						var $row = $('<tr>');
+						$.each(e, function(j, r){
+							$row.append($('<td>').html(r));
+						});
+						$table.append($row)
+					});*/
+				};
+					
+				//fetch users roster
+				(function() {
+					$.ajax({
+						dataType: 'jsonp',
+						format: "json",
+						url: 'https://gist.github.com/Srokap/d931da30e4fe8650c45b/raw/rs_roster.json',
+						success: function(){}
+					});
+				})();
+				
+			});
+		</script>
+	</body>
+</html>
