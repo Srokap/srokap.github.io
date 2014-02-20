@@ -20,7 +20,16 @@
 	</head>
 	<body>
 		<h1>Royal Squadron - Logs summary</h1>
-		<h2>Ranks summary</h2>
+		<h2>Ranks summary - Players (top ranks)</h2>
+		<div>
+			<table id="rank-summary2">
+				<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
+				<tbody></tbody>
+			</table>
+			<div id="chart_div2" />
+		</div>
+		
+		<h2>Ranks summary - all characters</h2>
 		<div>
 			<table id="rank-summary">
 				<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
@@ -29,7 +38,14 @@
 			<div id="chart_div" />
 		</div>
 		
-		<h2>Roster</h2>
+		<h2>Roster - Players (top ranks)</h2>
+		<div>
+			<table id="roster-usernames">
+				<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<h2>Roster - all characters</h2>
 		<div>
 			<table id="log-table">
 				<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
@@ -39,53 +55,42 @@
 		<script type="text/javascript">
 			$(function(){
 				//var rosterData = [];
-				var rosterSummary = {
-					'Admiral Floty': [1],
-					'Admiral': [2],
-					'Dow. Dywizjonu': [3],
-					'Dow. Klucza': [4],
-					'Dow. Eskadry': [5],
-					'Dow. Okretu': [6],
-					'Rekrut': [7],
-				};
-
-
-
-				// Callback that creates and populates a data table,
-				// instantiates the pie chart, passes in the data and
-				// draws it.
-				function drawChart() {
-					// Create the data table.
-					var googleData;
-					googleData = new google.visualization.DataTable();
-					googleData.addColumn('string', 'Rank');
-					googleData.addColumn('number', 'Count');
-
-					var data = $.map(rosterSummary, function(e, i){
-						return [[i, e[1]]];
-					});
-					googleData.addRows(data);
-
-					// Set chart options
-					var options = {'title':'Ranks distribution',
-								   'width':600,
-								   'height':500};
-
-					// Instantiate and draw our chart, passing in some options.
-					var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-					chart.draw(googleData, options);
+				function getRanks() {
+					return {
+						'Admiral Floty': [1],
+						'Admiral': [2],
+						'Dow. Dywizjonu': [3],
+						'Dow. Klucza': [4],
+						'Dow. Eskadry': [5],
+						'Dow. Okretu': [6],
+						'Rekrut': [7],
+					};
 				}
-				
-				jsonpCallback  = function(data) {
-					//rosterData = data;
-					var tab = $('#log-table').dataTable({
-						"iDisplayLength": 300
+
+				function aggregateTableByHandleTopRank(table) {
+					var ranks = getRanks();
+					var intermObj = {};
+					console.log(ranks);
+					$.each(table, function(i, e){
+						var name = e[1];
+						if (intermObj[name] == undefined) {
+							intermObj[name] = e;
+						} else {
+							var currentRankName = intermObj[name][2];
+							var newRankName = e[2];
+							if (ranks[newRankName][0] < ranks[currentRankName][0]) {
+								intermObj[name] = e;
+							}
+						}
 					});
-					var tabSummary = $('#rank-summary').dataTable({
-						"iDisplayLength": 300
+					console.log(intermObj);
+					return $.map(intermObj, function(e, i){
+						return [e]; //just convert object to array this way
 					});
-					
-					tab.fnAddData(data);
+				}
+
+				function aggregateTableByRanks(data) {
+					var rosterSummary = getRanks();
 					$.each(data, function(i, e){
 						var rank = e[2];
 						if (rosterSummary[rank][1] === undefined) {
@@ -100,16 +105,65 @@
 							rosterSummary[rank][2] += ', ' + e[0] + '@' + e[1];
 						}
 					});
+					var result = [];
 					$.each(rosterSummary, function(i, e){
-						tabSummary.fnAddData([e[0], i, e[1], e[2]]);
+						result.push([e[0], i, e[1], e[2]]);
 					});
-					drawChart();
-					 // Load the Visualization API and the piechart package.
-					 // google.load('visualization', '1.0', {'packages':['corechart']});
+					return result;
+				}
+				
+				// Callback that creates and populates a data table,
+				// instantiates the pie chart, passes in the data and
+				// draws it.
+				function drawChart(id, rosterSummary, title) {
+					// Create the data table.
+					var googleData;
+					googleData = new google.visualization.DataTable();
+					googleData.addColumn('string', 'Rank');
+					googleData.addColumn('number', 'Count');
 
-					// Set a callback to run when the Google Visualization API is loaded.
-					// google.setOnLoadCallback(drawChart);
+					var data = $.map(rosterSummary, function(e, i){
+						return [[e[1], e[2]]];
+					});
+					googleData.addRows(data);
 
+					// Set chart options
+					var options = {'title':title,
+								   'width':600,
+								   'height':500};
+
+					// Instantiate and draw our chart, passing in some options.
+					var chart = new google.visualization.PieChart(document.getElementById(id));
+					chart.draw(googleData, options);
+				}
+				
+				jsonpCallback  = function(rosterData) {
+					var tab = $('#log-table').dataTable({
+						"iDisplayLength": 300
+					});
+					var tab2 = $('#roster-usernames').dataTable({
+						"iDisplayLength": 300
+					});
+					var tabSummary = $('#rank-summary').dataTable({
+						"iDisplayLength": 300
+					});
+					var tabSummary2 = $('#rank-summary2').dataTable({
+						"iDisplayLength": 300
+					});
+					
+					//no aggregation
+					tab.fnAddData(rosterData);
+					rosterSummary = aggregateTableByRanks(rosterData);
+					tabSummary.fnAddData(rosterSummary);
+					drawChart('chart_div', rosterSummary, 'Ranks distribution - all characters');
+					
+					//aggregated by players
+					rosterData = aggregateTableByHandleTopRank(rosterData);
+					tab2.fnAddData(rosterData);
+					rosterSummary = aggregateTableByRanks(rosterData);
+					tabSummary2.fnAddData(rosterSummary);
+					drawChart('chart_div2', rosterSummary, 'Ranks distribution - top player ranks');
+					
 				};
 					
 				//fetch users roster
