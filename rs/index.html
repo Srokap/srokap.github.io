@@ -1,0 +1,180 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Royal Squadron - Logs summary</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+		<!-- DataTables -->
+		<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+		
+		<!--Load the AJAX API-->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+
+			// Load the Visualization API and the piechart package.
+			google.load('visualization', '1.0', {'packages':['corechart']});
+		</script>
+	</head>
+	<body>
+		<h1>Royal Squadron - Logs summary</h1>
+		<h2>Ranks summary - Players (top ranks)</h2>
+		<div>
+			<table id="rank-summary2">
+				<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
+				<tbody></tbody>
+			</table>
+			<div id="chart_div2" />
+		</div>
+		
+		<h2>Ranks summary - all characters</h2>
+		<div>
+			<table id="rank-summary">
+				<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
+				<tbody></tbody>
+			</table>
+			<div id="chart_div" />
+		</div>
+		
+		<h2>Roster - Players (top ranks)</h2>
+		<div>
+			<table id="roster-usernames">
+				<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<h2>Roster - all characters</h2>
+		<div>
+			<table id="log-table">
+				<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//var rosterData = [];
+				function getRanks() {
+					return {
+						'Admiral Floty': [1],
+						'Admiral': [2],
+						'Dow. Dywizjonu': [3],
+						'Dow. Eskadry': [4],
+						'Dow. Klucza': [5],
+						'Dow. Okretu': [6],
+						'Rekrut': [7],
+					};
+				}
+
+				function aggregateTableByHandleTopRank(table) {
+					var ranks = getRanks();
+					var intermObj = {};
+					$.each(table, function(i, e){
+						var name = e[1];
+						if (intermObj[name] == undefined) {
+							intermObj[name] = e;
+						} else {
+							var currentRankName = intermObj[name][2];
+							var newRankName = e[2];
+							if (ranks[newRankName][0] < ranks[currentRankName][0]) {
+								intermObj[name] = e;
+							}
+						}
+					});
+					return $.map(intermObj, function(e, i){
+						return [e]; //just convert object to array this way
+					});
+				}
+
+				function aggregateTableByRanks(data) {
+					var rosterSummary = getRanks();
+					$.each(data, function(i, e){
+						var rank = e[2];
+						if (rosterSummary[rank][1] === undefined) {
+							rosterSummary[rank][1] = 1;
+						} else {
+							rosterSummary[rank][1]++;
+						}
+						
+						if (rosterSummary[rank][2] === undefined) {
+							rosterSummary[rank][2] = e[0] + '@' + e[1];
+						} else {
+							rosterSummary[rank][2] += ', ' + e[0] + '@' + e[1];
+						}
+					});
+					var result = [];
+					$.each(rosterSummary, function(i, e){
+						result.push([e[0], i, e[1], e[2]]);
+					});
+					return result;
+				}
+				
+				// Callback that creates and populates a data table,
+				// instantiates the pie chart, passes in the data and
+				// draws it.
+				function drawChart(id, rosterSummary, title) {
+					// Create the data table.
+					var googleData;
+					googleData = new google.visualization.DataTable();
+					googleData.addColumn('string', 'Rank');
+					googleData.addColumn('number', 'Count');
+
+					var data = $.map(rosterSummary, function(e, i){
+						return [[e[1], e[2]]];
+					});
+					googleData.addRows(data);
+
+					// Set chart options
+					var options = {'title':title,
+								   'width':600,
+								   'height':500};
+
+					// Instantiate and draw our chart, passing in some options.
+					var chart = new google.visualization.PieChart(document.getElementById(id));
+					chart.draw(googleData, options);
+				}
+				
+				jsonpCallback  = function(rosterData) {
+					var tab = $('#log-table').dataTable({
+						"iDisplayLength": 300
+					});
+					var tab2 = $('#roster-usernames').dataTable({
+						"iDisplayLength": 300
+					});
+					var tabSummary = $('#rank-summary').dataTable({
+						"iDisplayLength": 300
+					});
+					var tabSummary2 = $('#rank-summary2').dataTable({
+						"iDisplayLength": 300
+					});
+					
+					//no aggregation
+					tab.fnAddData(rosterData);
+					rosterSummary = aggregateTableByRanks(rosterData);
+					tabSummary.fnAddData(rosterSummary);
+					drawChart('chart_div', rosterSummary, 'Ranks distribution - all characters');
+					
+					//aggregated by players
+					rosterData = aggregateTableByHandleTopRank(rosterData);
+					tab2.fnAddData(rosterData);
+					rosterSummary = aggregateTableByRanks(rosterData);
+					tabSummary2.fnAddData(rosterSummary);
+					drawChart('chart_div2', rosterSummary, 'Ranks distribution - top player ranks');
+					
+				};
+					
+				//fetch users roster
+				(function() {
+					$.ajax({
+						dataType: 'jsonp',
+						format: "json",
+						url: 'https://raw2.github.com/Srokap/srokap.github.io/master/rs/rs_roster.json',
+						success: function(){}
+					});
+				})();
+				
+			});
+		</script>
+	</body>
+</html>
