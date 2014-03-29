@@ -3,6 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Royal Squadron - Logs summary</title>
+		
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		
 		<!-- DataTables CSS -->
@@ -17,41 +21,65 @@
 			// Load the Visualization API and the piechart package.
 			google.load('visualization', '1.0', {'packages':['corechart']});
 		</script>
+		
 	</head>
 	<body>
-		<h1>Royal Squadron - Logs summary</h1>
-		<h2>Ranks summary - Players (top ranks)</h2>
-		<div>
-			<table id="rank-summary2">
-				<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
-				<tbody></tbody>
-			</table>
-			<div id="chart_div2" />
+		<div class="container-fluid">
+			<h1>Royal Squadron - Logs summary</h1>
+			
+			<ul class="nav nav-tabs">
+			  <li class="active"><a href="#pl_tr" data-toggle="tab">Player ranks</a></li>
+			  <li><a href="#rank_chr" data-toggle="tab">Characters ranks</a></li>
+			  <li><a href="#roster_accnt" data-toggle="tab">Roster - Players</a></li>
+			  <li><a href="#roster_all" data-toggle="tab">Roster - all characters</a></li>
+			</ul>
+			
+			<div class="tab-content">
+				<div class="tab-pane active" id="pl_tr">
+					<h2>Ranks summary - Players (top ranks)</h2>
+					<div>
+						<table id="rank-summary2">
+							<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
+							<tbody></tbody>
+						</table>
+						<div id="chart_div2"></div>
+					</div>
+				</div>
+				
+				
+				<div class="tab-pane" id="rank_chr">
+					<h2>Ranks summary - all characters</h2>
+					<div>
+						<table id="rank-summary">
+							<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
+							<tbody></tbody>
+						</table>
+						<div id="chart_div"></div>
+					</div>
+				</div>
+					
+				<div class="tab-pane" id="roster_accnt">
+					<h2>Roster - Players (top ranks)</h2>
+					<div>
+						<table id="roster-usernames">
+							<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+					
+				<div class="tab-pane" id="roster_all">
+					<h2>Roster - all characters</h2>
+					<div>
+						<table id="log-table">
+							<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 		
-		<h2>Ranks summary - all characters</h2>
-		<div>
-			<table id="rank-summary">
-				<thead><tr><th>L.p.</th><th>Fleet Rank</th><th>Count</th><th style="width:80%">Members</th></tr></thead>
-				<tbody></tbody>
-			</table>
-			<div id="chart_div" />
-		</div>
-		
-		<h2>Roster - Players (top ranks)</h2>
-		<div>
-			<table id="roster-usernames">
-				<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
-				<tbody></tbody>
-			</table>
-		</div>
-		<h2>Roster - all characters</h2>
-		<div>
-			<table id="log-table">
-				<thead><tr><th>Name</th><th>Login</th><th>Fleet Rank</th><th></th><th>Class</th><th>Name</th><th>Rank</th><th>Location</th><th></th><th>Name</th><th>Last seen</th><th>Last seen</th><th>Status</th></tr></thead>
-				<tbody></tbody>
-			</table>
-		</div>
 		<script type="text/javascript">
 			$(function(){
 				//var rosterData = [];
@@ -175,6 +203,9 @@
 				})();
 				
 			});
+			
+			
 		</script>
+		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	</body>
 </html>
