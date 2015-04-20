@@ -1,0 +1,23 @@
+{
+  "name": "srokap.pl",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Srokap/srokap.github.io",
+  "authors": [
+    "Paweł Sroka <srokap@gmail.com>"
+  ],
+  "description": "Home page of Paweł Sroka",
+  "main": "index.html",
+  "license": "BSD-3-Clause",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "~0.3.0",
+    "bootstrap": "~3.3.4"
+  }
+}

@@ -4,9 +4,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<title>Laks host</title>
-	
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css">
 	<style type="text/css">
 		body { padding-bottom: 70px; }
 	</style>
@@ -65,7 +65,7 @@
 				I'm a freelance web developer from <a href="http://en.wikipedia.org/wiki/Poland">Poland</a>, Core developer at <a href="http://elgg.org/">Elgg.org</a> and electronics geek.<br>
 				You'll find here bunch of stuff related to me.
 			</p>
-			<a class="btn btn-success btn-lg" href="#donate" data-toggle="modal"><span class="glyphicon glyphicon-thumbs-up"></span> Buy a beer</a>
+			<a class="btn btn-primary btn-lg" href="#donate" data-toggle="modal"><span class="glyphicon glyphicon-thumbs-up"></span> Buy a beer</a>
 		</div>
 	</div>
 
@@ -108,9 +108,9 @@
 					<li><a href="https://github.com/Srokap/db_backup">DB backup and restoration</a></li>
 				</ul>
 				<span class="pull-right">
-					<a class="btn btn-primary " href="http://community.elgg.org/plugins/developer/srokap">Elgg community</a>
-					<a class="btn btn-default" href="https://github.com/Srokap?tab=repositories">Github</a>
-					<a class="btn btn-default" href="https://packagist.org/users/Srokap/">Packagist</a>
+					<a class="btn btn-primary btn-raised" href="http://community.elgg.org/plugins/developer/srokap">Elgg community</a>
+					<a class="btn btn-default btn-raised" href="https://github.com/Srokap?tab=repositories">Github</a>
+					<a class="btn btn-default btn-raised" href="https://packagist.org/users/Srokap/">Packagist</a>
 				</span>
 			</div>
 		</div>
@@ -158,7 +158,7 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 
 	<div class="navbar navbar-default navbar-fixed-bottom">
 		<div class="container">
-			<a href="http://nocookielaw.com/" rel="nofollow" class="btn navbar-btn btn-danger pull-right">Regarding cookies...</a>
+			<!--<a href="http://nocookielaw.com/" rel="nofollow" class="btn navbar-btn btn-danger pull-right btn-raised">Regarding cookies...</a>-->
 			<p class="navbar-text">
 				Copyright &copy; 2014 Paweł Sroka
 			</p>
@@ -186,7 +186,7 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 					</center>
 				</div>
 				<div class="modal-footer">
-					<a href="#" class="btn btn-default" data-dismiss="modal" title="Seriously?"><span class="glyphicon glyphicon-thumbs-down"></span> Maybe another time</a>
+					<a href="#" class="btn btn-default btn-danger" data-dismiss="modal" title="Seriously?"><span class="glyphicon glyphicon-thumbs-down"></span> Maybe another time</a>
 				</div>
 			</div>
 		</div>
@@ -212,8 +212,10 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 		</div>
 	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+  <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -223,6 +225,8 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 	  ga('create', 'UA-50441711-3', 'srokap.pl');
 	  ga('send', 'pageview');
 
+    $.material.init()
+    $.material.ripples()
 	</script>
 </body>
 </html>
