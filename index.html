@@ -6,14 +6,22 @@
 	<title>Laks host</title>
 
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css">
-	<style type="text/css">
+  <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css">
+  <style type="text/css">
 		body { padding-bottom: 70px; }
+
+    a,
+    a:hover,
+    a:focus {
+      color: #673ab7;
+    }
 	</style>
 </head>
 <body>
 
-	<div class="navbar navbar-inverse navbar-static-top">
+	<div class="navbar navbar-inverse navbar-static-top navbar-material-deep-purple">
 		<div class="container">
 			<a href="http://srokap.pl/" class="navbar-brand"><span class="glyphicon glyphicon-bookmark"></span> Laks host</a>
 			
@@ -25,7 +33,7 @@
 			
 			<div class="collapse navbar-collapse navHeaderCollapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="http://srokap.pl/">Home</a>
+					<li class=""><a href="http://srokap.pl/">Home</a>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b>
 							<ul class="dropdown-menu">
@@ -62,10 +70,10 @@
 			<img src="https://1.gravatar.com/avatar/eb1851bc2346917659e2fac746e250be?d=https%3A%2F%2Fidenticons.github.com%2F2eb10f32aa3207ae01ddc3a62a10e670.png&r=x&s=140" class="pull-right img-thumbnail" alt="My face :-)" />
 			<h1>Paweł Sroka</h1>
 			<p>
-				I'm a freelance web developer from <a href="http://en.wikipedia.org/wiki/Poland">Poland</a>, Core developer at <a href="http://elgg.org/">Elgg.org</a> and electronics geek.<br>
+				I'm a <a href="https://nodejs.org/">Node.js</a> and web developer from <a href="http://en.wikipedia.org/wiki/Poland">Poland</a>, Core developer at <a href="http://elgg.org/">Elgg.org</a> and electronics geek.<br>
 				You'll find here bunch of stuff related to me.
 			</p>
-			<a class="btn btn-primary btn-lg" href="#donate" data-toggle="modal"><span class="glyphicon glyphicon-thumbs-up"></span> Buy a beer</a>
+			<a class="btn btn-primary btn-lg btn-material-deep-purple" href="#donate" data-toggle="modal"><span class="glyphicon glyphicon-thumbs-up"></span> Buy a beer</a>
 		</div>
 	</div>
 
@@ -73,59 +81,81 @@
 	
 		<div class="row">
 			<div class="col-md-4">
-				<h2>vCard</h2>
-				<center>
-					<img src="_assets/qr.png" class="img-thumbnail img-responsive" alt="QR VCard" title="Scan with your phone" />
-				</center>
+        <div class="panel panel-material-blue">
+          <div class="panel-heading">
+            <h2 class="panel-title">vCard</h2>
+          </div>
+          <div class="panel-body">
+            <center>
+              <img src="_assets/qr.png" class="img-thumbnail img-responsive" alt="QR VCard" title="Scan with your phone" />
+            </center>
+          </div>
+        </div>
 			</div>
 			
 			<div class="col-md-4">
-				<h2>Links</h2>
-				<p>
-				Those are few other places you can find me on the Internet:
-				</p>
-				<ul>
-					<li><a href="https://github.com/Srokap" rel="me">Github account</a></li>
-					<li><a href="http://community.elgg.org/profile/srokap" rel="me">Elgg community account</a></li>
-					<li><a href="http://www.linkedin.com/pub/pawe%C5%82-sroka/44/917/8b7" rel="me">Linkedin profile</a></li>
-					<li><a href="https://plus.google.com/+Pawe%C5%82Sroka" rel="me">+Paweł</a></li>
-					<li><a href="https://twitter.com/srokap" rel="me">@srokap on Twitter</a></li>
-					<li><a href="http://gravatar.com/srokap">Gravatar</a></li>
-					<li><a href="http://www.thingiverse.com/Srokap/designs" title="RepRap FTW!">Thingiverse</a></li>
-				</ul>
+        <div class="panel panel-material-pink">
+          <div class="panel-heading">
+            <h2 class="panel-title">Links</h2>
+          </div>
+          <div class="panel-body">
+            <p>
+              Those are few other places you can find me on the Internet:
+            </p>
+            <ul>
+              <li><a href="https://github.com/Srokap" rel="me">Github account</a></li>
+              <li><a href="http://community.elgg.org/profile/srokap" rel="me">Elgg community account</a></li>
+              <li><a href="http://www.linkedin.com/pub/pawe%C5%82-sroka/44/917/8b7" rel="me">Linkedin profile</a></li>
+              <li><a href="https://plus.google.com/+Pawe%C5%82Sroka" rel="me">+Paweł</a></li>
+              <li><a href="https://twitter.com/srokap" rel="me">@srokap on Twitter</a></li>
+              <li><a href="http://gravatar.com/srokap">Gravatar</a></li>
+              <li><a href="http://www.thingiverse.com/Srokap/designs" title="RepRap FTW!">Thingiverse</a></li>
+            </ul>
+          </div>
+        </div>
 			</div>
 
 			<div class="col-md-4">
-				<h2>Elgg plugins</h2>
-				<p>
-					Some of my plugins I find most useful/interesting:
-				</p>
-				<ul>
-					<li><a href="https://github.com/Srokap/srokap_plugin_installer">Plugins downloader and installer</a></li>
-					<li><a href="https://github.com/Srokap/code_review">Code review</a></li>
-					<li><a href="https://github.com/Srokap/data_generator">Data generator</a></li>
-					<li><a href="https://github.com/Srokap/translation_diagnostic">Translation diagnostic</a></li>
-					<li><a href="https://github.com/Srokap/db_backup">DB backup and restoration</a></li>
-				</ul>
-				<span class="pull-right">
-					<a class="btn btn-primary btn-raised" href="http://community.elgg.org/plugins/developer/srokap">Elgg community</a>
-					<a class="btn btn-default btn-raised" href="https://github.com/Srokap?tab=repositories">Github</a>
-					<a class="btn btn-default btn-raised" href="https://packagist.org/users/Srokap/">Packagist</a>
-				</span>
+        <div class="panel panel-material-green">
+          <div class="panel-heading">
+            <h2 class="panel-title">Elgg plugins</h2>
+          </div>
+          <div class="panel-body">
+            <p>
+              Some of my plugins I find most useful/interesting:
+            </p>
+            <ul>
+              <li><a href="https://github.com/Srokap/srokap_plugin_installer">Plugins downloader and installer</a></li>
+              <li><a href="https://github.com/Srokap/code_review">Code review</a></li>
+              <li><a href="https://github.com/Srokap/data_generator">Data generator</a></li>
+              <li><a href="https://github.com/Srokap/translation_diagnostic">Translation diagnostic</a></li>
+              <li><a href="https://github.com/Srokap/db_backup">DB backup and restoration</a></li>
+            </ul>
+            <div class="list-group">
+              <a class="btn btn-material-teal" href="http://community.elgg.org/plugins/developer/srokap" target="_blank">Elgg community</a>
+              <a class="btn btn-material-blue-grey" href="https://github.com/Srokap?tab=repositories" target="_blank">Github</a>
+              <a class="btn btn-material-brown" href="https://packagist.org/users/Srokap/" target="_blank">Packagist</a>
+            </div>
+          </div>
+        </div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-6">
-				<h2>PGP Public Key</h2>
-				<p>
-					You'll find below my PGP(GPG) public key. You can also <a href="srokap_2013_11_18.asc">download .asc file</a> directly or&nbsp;from 
-						<a href="http://wwwkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">one</a>
-						<a href="http://subkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">of</a>
-						<a href="http://pgp.mit.edu/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">pgp</a>
-						<a href="http://minsky.surfnet.nl/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">servers</a>.
-				</p>
-				<pre>
+        <div class="panel panel-material-deep-orange">
+          <div class="panel-heading">
+            <h2 class="panel-title">PGP Public Key</h2>
+          </div>
+          <div class="panel-body">
+            <p>
+              You'll find below my PGP(GPG) public key. You can also <a href="srokap_2013_11_18.asc">download .asc file</a> directly or&nbsp;from
+              <a href="http://wwwkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">one</a>
+              <a href="http://subkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">of</a>
+              <a href="http://pgp.mit.edu/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">pgp</a>
+              <a href="http://minsky.surfnet.nl/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">servers</a>.
+            </p>
+				    <pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.22 (MingW32)
 
@@ -151,6 +181,8 @@ Jj9fOKLHc5zwKwhIQVcOt/MLC36rWkuFEj+pjz0EQqbHQgQgHxnyGKjY6abLE2uE
 vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 =X21A
 -----END PGP PUBLIC KEY BLOCK-----</pre>
+          </div>
+        </div>
 			</div>
 		</div>
 		
@@ -160,7 +192,7 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 		<div class="container">
 			<!--<a href="http://nocookielaw.com/" rel="nofollow" class="btn navbar-btn btn-danger pull-right btn-raised">Regarding cookies...</a>-->
 			<p class="navbar-text">
-				Copyright &copy; 2014 Paweł Sroka
+				Copyright &copy; 2014 - 2015 Paweł Sroka
 			</p>
 		</div>
 	</div>
@@ -206,7 +238,7 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 					</center>
 				</div>
 				<div class="modal-footer">
-					<a href="#" class="btn btn-default" data-dismiss="modal">?</a>
+					<a href="#" class="btn btn-default btn-raised" data-dismiss="modal">?</a>
 				</div>
 			</div>
 		</div>
