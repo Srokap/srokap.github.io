@@ -1,160 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="UTF-8">
-	<title>Laks host</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Laks host</title>
 
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css">
   <style type="text/css">
-		body { padding-bottom: 70px; }
+    body {
+      padding-bottom: 70px;
+    }
 
     a,
     a:hover,
     a:focus {
       color: #673ab7;
     }
-	</style>
+  </style>
 </head>
 <body>
 
-	<div class="navbar navbar-inverse navbar-static-top navbar-material-deep-purple">
-		<div class="container">
-			<a href="http://srokap.pl/" class="navbar-brand"><span class="glyphicon glyphicon-bookmark"></span> Laks host</a>
-			
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			
-			<div class="collapse navbar-collapse navHeaderCollapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class=""><a href="http://srokap.pl/">Home</a>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b>
-							<ul class="dropdown-menu">
-								<li><a href="https://github.com/Srokap" rel="me">Github account</a></li>
-								<li><a href="http://community.elgg.org/profile/srokap" rel="me">Elgg community account</a></li>
-								<li><a href="http://www.linkedin.com/pub/pawe%C5%82-sroka/44/917/8b7" rel="me">Linkedin profile</a></li>
-								<li><a href="https://plus.google.com/+PawelSroka?rel=author" rel="me">+Paweł</a></li>
-								<li><a href="https://twitter.com/srokap" rel="me">@srokap on Twitter</a></li>
-								<li><a href="http://gravatar.com/srokap" rel="me">Gravatar</a></li>
-							</ul>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b>
-							<ul class="dropdown-menu">
-								<li><a href="https://github.com/Srokap/srokap_plugin_installer">Plugins downloader and installer</a></li>
-								<li><a href="https://github.com/Srokap/code_review">Code review</a></li>
-								<li><a href="https://github.com/Srokap/data_generator">Data generator</a></li>
-								<li><a href="https://github.com/Srokap/translation_diagnostic">Translation diagnostic</a></li>
-								<li><a href="https://github.com/Srokap/db_backup">DB backup and restoration</a></li>
-							</ul>
-						</a>
-					</li>
-					<li><a href="#riddle" data-toggle="modal">Riddle</a>
-					<li><a href="#donate" data-toggle="modal">Donate</a>
-				</ul>
-			</div>
-			
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="jumbotron">
-			<img src="https://1.gravatar.com/avatar/eb1851bc2346917659e2fac746e250be?d=https%3A%2F%2Fidenticons.github.com%2F2eb10f32aa3207ae01ddc3a62a10e670.png&r=x&s=140" class="pull-right img-thumbnail" alt="My face :-)" />
-			<h1>Paweł Sroka</h1>
-			<p>
-				I'm a <a href="https://nodejs.org/">Node.js</a> and web developer from <a href="http://en.wikipedia.org/wiki/Poland">Poland</a>, Core developer at <a href="http://elgg.org/">Elgg.org</a> and electronics geek.<br>
-				You'll find here bunch of stuff related to me.
-			</p>
-			<a class="btn btn-primary btn-lg btn-material-deep-purple" href="#donate" data-toggle="modal"><span class="glyphicon glyphicon-thumbs-up"></span> Buy a beer</a>
-		</div>
-	</div>
+<div class="navbar navbar-inverse navbar-static-top navbar-material-deep-purple">
+  <div class="container">
+    <a href="http://srokap.pl/" class="navbar-brand"><span class="glyphicon glyphicon-bookmark"></span> Laks host</a>
 
-	<div class="container">
-	
-		<div class="row">
-			<div class="col-md-4">
-        <div class="panel panel-material-blue">
-          <div class="panel-heading">
-            <h2 class="panel-title">vCard</h2>
-          </div>
-          <div class="panel-body">
-            <center>
-              <img src="_assets/qr.png" class="img-thumbnail img-responsive" alt="QR VCard" title="Scan with your phone" />
-            </center>
-          </div>
-        </div>
-			</div>
-			
-			<div class="col-md-4">
-        <div class="panel panel-material-pink">
-          <div class="panel-heading">
-            <h2 class="panel-title">Links</h2>
-          </div>
-          <div class="panel-body">
-            <p>
-              Those are few other places you can find me on the Internet:
-            </p>
-            <ul>
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navHeaderCollapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class=""><a href="http://srokap.pl/">Home</a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b>
+            <ul class="dropdown-menu">
               <li><a href="https://github.com/Srokap" rel="me">Github account</a></li>
               <li><a href="http://community.elgg.org/profile/srokap" rel="me">Elgg community account</a></li>
               <li><a href="http://www.linkedin.com/pub/pawe%C5%82-sroka/44/917/8b7" rel="me">Linkedin profile</a></li>
-              <li><a href="https://plus.google.com/+Pawe%C5%82Sroka" rel="me">+Paweł</a></li>
+              <li><a href="https://plus.google.com/+PawelSroka?rel=author" rel="me">+Paweł</a></li>
               <li><a href="https://twitter.com/srokap" rel="me">@srokap on Twitter</a></li>
-              <li><a href="http://gravatar.com/srokap">Gravatar</a></li>
-              <li><a href="http://www.thingiverse.com/Srokap/designs" title="RepRap FTW!">Thingiverse</a></li>
+              <li><a href="http://gravatar.com/srokap" rel="me">Gravatar</a></li>
             </ul>
-          </div>
-        </div>
-			</div>
-
-			<div class="col-md-4">
-        <div class="panel panel-material-green">
-          <div class="panel-heading">
-            <h2 class="panel-title">Elgg plugins</h2>
-          </div>
-          <div class="panel-body">
-            <p>
-              Some of my plugins I find most useful/interesting:
-            </p>
-            <ul>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b>
+            <ul class="dropdown-menu">
               <li><a href="https://github.com/Srokap/srokap_plugin_installer">Plugins downloader and installer</a></li>
               <li><a href="https://github.com/Srokap/code_review">Code review</a></li>
               <li><a href="https://github.com/Srokap/data_generator">Data generator</a></li>
               <li><a href="https://github.com/Srokap/translation_diagnostic">Translation diagnostic</a></li>
               <li><a href="https://github.com/Srokap/db_backup">DB backup and restoration</a></li>
             </ul>
-            <div class="list-group">
-              <a class="btn btn-material-teal" href="http://community.elgg.org/plugins/developer/srokap" target="_blank">Elgg community</a>
-              <a class="btn btn-material-blue-grey" href="https://github.com/Srokap?tab=repositories" target="_blank">Github</a>
-              <a class="btn btn-material-brown" href="https://packagist.org/users/Srokap/" target="_blank">Packagist</a>
+          </a>
+        </li>
+        <li><a href="#riddle" data-toggle="modal">Riddle</a>
+        <li><a href="#donate" data-toggle="modal">Donate</a>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="jumbotron">
+    <img
+      src="https://1.gravatar.com/avatar/eb1851bc2346917659e2fac746e250be?d=https%3A%2F%2Fidenticons.github.com%2F2eb10f32aa3207ae01ddc3a62a10e670.png&r=x&s=140"
+      class="pull-right img-thumbnail" alt="My face :-)"/>
+
+    <h1>Paweł Sroka</h1>
+
+    <p>
+      I'm a <a href="https://nodejs.org/">Node.js</a> and web developer from <a
+      href="http://en.wikipedia.org/wiki/Poland">Poland</a>, Core developer at <a href="http://elgg.org/">Elgg.org</a>
+      and electronics geek.<br>
+      You'll find here bunch of stuff related to me.
+    </p>
+    <a class="btn btn-primary btn-lg btn-material-deep-purple" href="#donate" data-toggle="modal"><span
+      class="glyphicon glyphicon-thumbs-up"></span> Buy a beer</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-material-blue">
+        <div class="panel-heading">
+          <h2 class="panel-title">vCard</h2>
+        </div>
+        <div class="panel-body">
+          <center>
+            <img src="_assets/qr.png" class="img-thumbnail img-responsive" alt="QR VCard" title="Scan with your phone"/>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="panel panel-material-pink">
+        <div class="panel-heading">
+          <h2 class="panel-title">Links</h2>
+        </div>
+        <div class="panel-body">
+          <p>
+            Those are few other places you can find me on the Internet:
+          </p>
+          <ul>
+            <li><a href="https://github.com/Srokap" rel="me">Github account</a></li>
+            <li><a href="http://community.elgg.org/profile/srokap" rel="me">Elgg community account</a></li>
+            <li><a href="http://www.linkedin.com/pub/pawe%C5%82-sroka/44/917/8b7" rel="me">Linkedin profile</a></li>
+            <li><a href="https://plus.google.com/+Pawe%C5%82Sroka" rel="me">+Paweł</a></li>
+            <li><a href="https://twitter.com/srokap" rel="me">@srokap on Twitter</a></li>
+            <li><a href="http://gravatar.com/srokap">Gravatar</a></li>
+            <li><a href="http://www.thingiverse.com/Srokap/designs" title="RepRap FTW!">Thingiverse</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 pull-right">
+      <div class="panel panel-material-green">
+        <div class="panel-heading">
+          <h2 class="panel-title">Elgg plugins</h2>
+        </div>
+        <div class="panel-body">
+          <p>
+            Some of my plugins I find most useful/interesting:
+          </p>
+
+          <div class="media">
+            <div class="media-left">
+              <big>
+                <span class="glyphicon glyphicon-download-alt"></span>
+              </big>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <a href="https://github.com/Srokap/srokap_plugin_installer">Plugins downloader and installer</a>
+              </h4>
+              Plugin to search and instantly install plugins got from community.elgg.org
             </div>
           </div>
-        </div>
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col-md-6">
-        <div class="panel panel-material-deep-orange">
-          <div class="panel-heading">
-            <h2 class="panel-title">PGP Public Key</h2>
+          <div class="media">
+            <div class="media-left">
+              <big>
+                <span class="glyphicon glyphicon-check"></span>
+              </big>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <a href="https://github.com/Srokap/code_review">Code review</a>
+              </h4>
+              Plugin for PHP code analysis and refactoring
+            </div>
           </div>
-          <div class="panel-body">
-            <p>
-              You'll find below my PGP(GPG) public key. You can also <a href="srokap_2013_11_18.asc">download .asc file</a> directly or&nbsp;from
-              <a href="http://wwwkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">one</a>
-              <a href="http://subkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">of</a>
-              <a href="http://pgp.mit.edu/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">pgp</a>
-              <a href="http://minsky.surfnet.nl/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">servers</a>.
-            </p>
+
+          <div class="media">
+            <div class="media-left">
+              <big>
+                <span class="glyphicon glyphicon-duplicate"></span>
+              </big>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <a href="https://github.com/Srokap/data_generator">Data generator</a>
+              </h4>
+              Plugin that allows to fill-up Elgg installation with a lot of fake data for benchmarking
+            </div>
+          </div>
+
+          <div class="media">
+            <div class="media-left">
+              <big>
+                <span class="glyphicon glyphicon-comment"></span>
+              </big>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <a href="https://github.com/Srokap/translation_diagnostic">Translation diagnostic</a>
+              </h4>
+              Performs translations analysis against used and defined tokens for the site code
+            </div>
+          </div>
+
+          <div class="media">
+            <div class="media-left">
+              <big>
+                <span class="glyphicon glyphicon-hdd"></span>
+              </big>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <a href="https://github.com/Srokap/db_backup">DB backup and restoration</a>
+              </h4>
+              Plugin, that allows creating and restoring MySQL database backups
+            </div>
+          </div>
+
+          <div class="list-group">
+            <a class="btn btn-material-teal" href="http://community.elgg.org/plugins/developer/srokap" target="_blank">Elgg
+              community</a>
+            <a class="btn btn-material-blue-grey" href="https://github.com/Srokap?tab=repositories" target="_blank">Github</a>
+            <a class="btn btn-material-brown" href="https://packagist.org/users/Srokap/" target="_blank">Packagist</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 pull-left">
+      <div class="panel panel-material-deep-orange">
+        <div class="panel-heading">
+          <h2 class="panel-title">PGP Public Key</h2>
+        </div>
+        <div class="panel-body">
+          <p>
+            You'll find below my PGP(GPG) public key. You can also <a href="srokap_2013_11_18.asc">download .asc
+            file</a> directly or&nbsp;from
+            <a href="http://wwwkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">one</a>
+            <a href="http://subkeys.pgp.net:11371/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">of</a>
+            <a href="http://pgp.mit.edu/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">pgp</a>
+            <a href="http://minsky.surfnet.nl/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">servers</a>.
+          </p>
 				    <pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.22 (MingW32)
@@ -181,84 +254,94 @@ Jj9fOKLHc5zwKwhIQVcOt/MLC36rWkuFEj+pjz0EQqbHQgQgHxnyGKjY6abLE2uE
 vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 =X21A
 -----END PGP PUBLIC KEY BLOCK-----</pre>
-          </div>
         </div>
-			</div>
-		</div>
-		
-	</div>
+      </div>
+    </div>
+  </div>
 
-	<div class="navbar navbar-default navbar-fixed-bottom">
-		<div class="container">
-			<!--<a href="http://nocookielaw.com/" rel="nofollow" class="btn navbar-btn btn-danger pull-right btn-raised">Regarding cookies...</a>-->
-			<p class="navbar-text">
-				Copyright &copy; 2014 - 2015 Paweł Sroka
-			</p>
-		</div>
-	</div>
-	
-	<!-- modals -->
-	
-	<div class="modal fade" id="donate" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4>If you feel like it, you can always buy me a beer ;-)</h4>
-				</div>
-				<div class="modal-body">
-					<center>
-						<h2><big><span class="glyphicon glyphicon-thumbs-up"></span></big></h2>
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-							<input type="hidden" name="cmd" value="_s-xclick">
-							<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYA23xZw0z3F/m/B37vcq7QzgPLZ4Z4VleInAzdgfgRpArr2txKWmQ7pATbmdEZK0POUABE1aRc5I5OnZCk3mqxyYnFUl7vfsqASeg/owA7SjhQp8XsVy8y4ktFJVR86s6zBNbn7MEjiIZhGOhCF9ze8tt11C1pT7049PYxXxNotOzELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIpAyR3C6qmy+AgZj+61yeckLcL60tjfmLcc1rh8jGWGzp+6+ed8dPFXlqBWvuyEbcu3uGHwH7G8kJW79HKGxrfaXDT5kCp1FJYdZGPSywngI0DDaV0U5OVMFh1QAScehZ0V68Be/WWbwVhTh/tElfDEACBHJuavxlPq9d+pOFbhISmtZCt4YGqWhsWnRmLbSoxotYsFMCWdTIM1lJJdsujqDMr6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTEyMTIyOTAwNTI1NlowIwYJKoZIhvcNAQkEMRYEFInALO6CdY/IQTnrSEAMjyFeLnpBMA0GCSqGSIb3DQEBAQUABIGAlWvJSLSgskpiqY2mSB37Ar5/OaZZgPr0dFgx7odhx8CVKi2JSbOeyM/SELMydDU8cCNGXht3gwJXl3fclnPeNf5nsjVNoY5X3hHc+UjdPVNi16LJSQ/qbxzsd4Z32hpTm461Tovp3ohUD9rLeB9a3Z0CFs+uSZ+s0kv8G1tGxfE=-----END PKCS7-----
+</div>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <!--<a href="http://nocookielaw.com/" rel="nofollow" class="btn navbar-btn btn-danger pull-right btn-raised">Regarding cookies...</a>-->
+    <p class="navbar-text">
+      Copyright &copy; 2014 - 2015 Paweł Sroka
+    </p>
+  </div>
+</div>
+
+<!-- modals -->
+
+<div class="modal fade" id="donate" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>If you feel like it, you can always buy me a beer ;-)</h4>
+      </div>
+      <div class="modal-body">
+        <center>
+          <h2><big><span class="glyphicon glyphicon-thumbs-up"></span></big></h2>
+
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
 ">
-							<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
-							<img alt="" border="0" src="https://www.paypalobjects.com/pl_PL/i/scr/pixel.gif" width="1" height="1">
-						</form>
-					</center>
-				</div>
-				<div class="modal-footer">
-					<a href="#" class="btn btn-default btn-danger" data-dismiss="modal" title="Seriously?"><span class="glyphicon glyphicon-thumbs-down"></span> Maybe another time</a>
-				</div>
-			</div>
-		</div>
-	</div>
+            <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0"
+                   name="submit" alt="PayPal — The safer, easier way to pay online.">
+            <img alt="" border="0" src="https://www.paypalobjects.com/pl_PL/i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </center>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-default btn-danger" data-dismiss="modal" title="Seriously?"><span
+          class="glyphicon glyphicon-thumbs-down"></span> Maybe another time</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-	<div class="modal fade" id="riddle" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4>:-)</h4>
-				</div>
-				<div class="modal-body">
-					<center>
-						<p>
-							<img src="_assets/laks.jpg" alt="Ryba :P" />
-						</p>
-					</center>
-				</div>
-				<div class="modal-footer">
-					<a href="#" class="btn btn-default btn-raised" data-dismiss="modal">?</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="modal fade" id="riddle" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>:-)</h4>
+      </div>
+      <div class="modal-body">
+        <center>
+          <p>
+            <img src="_assets/laks.jpg" alt="Ryba :P"/>
+          </p>
+        </center>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-default btn-raised" data-dismiss="modal">?</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
-  <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-	  ga('create', 'UA-50441711-3', 'srokap.pl');
-	  ga('send', 'pageview');
+  ga('create', 'UA-50441711-3', 'srokap.pl');
+  ga('send', 'pageview');
 
-    $.material.init()
-    $.material.ripples()
-	</script>
+  $.material.init()
+  $.material.ripples()
+</script>
 </body>
 </html>
