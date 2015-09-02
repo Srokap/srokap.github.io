@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Hash generator</title>
+
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/material.min.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/roboto.min.css">
+  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-static-top navbar-material-deep-purple">
+  <div class="container">
+    <a href="http://srokap.pl/" class="navbar-brand"><span class="glyphicon glyphicon-bookmark"></span> Hash generator</a>
+
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navHeaderCollapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#md5">MD5</a>
+        <li><a href="#sha1">SHA1</a>
+        <li><a href="#sha2">SHA2</a>
+        <li><a href="#sha3">SHA3</a>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+        <div id="md5" class="panel panel-material-deep-orange">
+          <div class="panel-heading">
+            <h2 class="panel-title">MD5</h2>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="md5Input">Input</label>
+                <textarea class="form-control" id="md5Input" rows="3" placeholder="Paste contents you want to hash..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="md5Output">MD5 result</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="md5Output">
+                  <span class="input-group-btn">
+                  <a class="btn btn-secondary btn-lg copy-form-value" title="Copy to clipboard"><span class="glyphicon glyphicon-copy"></span></a>
+                </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Hash</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div id="sha1" class="panel panel-material-orange">
+          <div class="panel-heading">
+            <h2 class="panel-title">SHA1</h2>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="sha1Input">Input</label>
+                <textarea class="form-control" id="sha1Input" rows="3" placeholder="Paste contents you want to hash..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="sha1Output">SHA1 result</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="sha1Output">
+                  <span class="input-group-btn">
+                  <a class="btn btn-secondary btn-lg copy-form-value" title="Copy to clipboard"><span class="glyphicon glyphicon-copy"></span></a>
+                </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Hash</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-12">
+        <div id="sha3" class="panel panel-material-green">
+          <div class="panel-heading">
+            <h2 class="panel-title">SHA3 (512 bit)</h2>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="sha3Input">Input</label>
+                <textarea class="form-control" id="sha3Input" rows="3" placeholder="Paste contents you want to hash..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="sha3Output">SHA3 result</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="sha3Output">
+                  <span class="input-group-btn">
+                  <a class="btn btn-secondary btn-lg copy-form-value" title="Copy to clipboard"><span class="glyphicon glyphicon-copy"></span></a>
+                </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Hash</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div id="ripemd-160" class="panel panel-material-blue">
+          <div class="panel-heading">
+            <h2 class="panel-title">RIPEMD-160</h2>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="ripemd-160Input">Input</label>
+                <textarea class="form-control" id="ripemd-160Input" rows="3" placeholder="Paste contents you want to hash..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="ripemd-160Output">RIPEMD-160 result</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="ripemd-160Output">
+                  <span class="input-group-btn">
+                  <a class="btn btn-secondary btn-lg copy-form-value" title="Copy to clipboard"><span class="glyphicon glyphicon-copy"></span></a>
+                </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Hash</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+  <script src="../bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+
+  <script src="../bower_components/crypto-js/crypto-js.js"></script>
+  <script src="hashes.js"></script>
+
+  <script>
+    $.material.init()
+    $.material.ripples()
+  </script>
+</body>
+</html>

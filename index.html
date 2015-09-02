@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <style type="text/css">
     body {
       padding-bottom: 70px;
@@ -103,6 +103,22 @@
       </div>
     </div>
 
+    <div class="col-md-4 pull-right">
+      <div class="panel panel-material-brown">
+        <div class="panel-heading">
+          <h2 class="panel-title"><span class="glyphicon glyphicon-wrench"></span> Tools</h2>
+        </div>
+        <div class="panel-body">
+          <p>
+            Some tools useful in daily work
+          </p>
+          <ul>
+            <li><a href="tools/hashes.html">Hashing tools</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="col-md-4">
       <div class="panel panel-material-pink">
         <div class="panel-heading">
@@ -120,6 +136,7 @@
             <li><a href="https://twitter.com/srokap" rel="me">@srokap on Twitter</a></li>
             <li><a href="http://gravatar.com/srokap">Gravatar</a></li>
             <li><a href="http://www.thingiverse.com/Srokap/designs" title="RepRap FTW!">Thingiverse</a></li>
+            <li>T-EPWR58 @ <a href="https://www.flightradar24.com/share-statistics">flightradar24</a></li>
           </ul>
         </div>
       </div>
@@ -229,7 +246,7 @@
             <a href="http://pgp.mit.edu/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">pgp</a>
             <a href="http://minsky.surfnet.nl/pks/lookup?search=0x68B51A60&op=vindex&fingerprint=on">servers</a>.
           </p>
-				    <pre>
+          <pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.22 (MingW32)
 
@@ -266,8 +283,10 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
   <div class="container">
     <!--<a href="http://nocookielaw.com/" rel="nofollow" class="btn navbar-btn btn-danger pull-right btn-raised">Regarding cookies...</a>-->
     <p class="navbar-text">
-      Copyright &copy; 2014 - 2015 Paweł Sroka
+      Copyright &copy; 2014 - 2017 Paweł Sroka
     </p>
+    <p class="navbar-text" id="fps"></p>
+    <p class="navbar-text" id="netStatus"></p>
   </div>
 </div>
 
@@ -325,22 +344,33 @@ vr2O/UcSCsYPSWt0qv8vRE14SOoeszZrupo3Q0uzlw==
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
 <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<!-- Footer indicators -->
 <script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  let fpsCnt = 0
+  function fpsTick() {
+    fpsCnt++
+    window.requestAnimationFrame(fpsTick)
+  }
+  fpsTick()
+  var fpsInterval = setInterval(() => {
+    // do the thing with fps
+    document.getElementById('fps').innerHTML = fpsCnt + ' FPS'
+    document.getElementById('netStatus').innerHTML = navigator.onLine ? 'Online mode' : 'Offline mode'
+    fpsCnt = 0
+  }, 1000)
+</script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-50441711-3', 'srokap.pl');
   ga('send', 'pageview');
-
+</script>
+<!-- End Google Analytics -->
+<script>
   $.material.init()
   $.material.ripples()
 </script>
